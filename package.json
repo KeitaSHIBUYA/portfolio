@@ -10,7 +10,8 @@
     "type-check": "tsc --noEmit",
     "postinstall": "husky",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "prepare": "husky"
   },
   "dependencies": {
     "@nextui-org/react": "^2.6.11",
