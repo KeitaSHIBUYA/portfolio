@@ -1,0 +1,58 @@
+# 依存関係
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# Next.js ビルド出力
+.next
+out
+
+# キャッシュ
+.cache
+.npm
+.yarn
+
+# 開発環境関連
+.env.local
+.env.development
+.env.test
+.env*.local
+
+# Git関連
+.git
+.gitignore
+
+# エディタ関連
+.idea
+.vscode
+*.swp
+*.swo
+.DS_Store
+
+# テスト関連
+coverage
+*.test.ts
+*.test.tsx
+__tests__
+__mocks__
+
+# その他
+README.md
+*.log
+.husky
+.eslintrc*
+.prettierrc*
+.stylelintrc*
+jest.config.*
+tsconfig.tsbuildinfo
+
+# デバッグ関連
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ドキュメント
+docs
+*.md
+LICENSE 
