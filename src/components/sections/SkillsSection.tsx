@@ -16,15 +16,15 @@ export const SkillsSection: React.FC = () => {
         {
           name: "Compute Engine",
           level: 95,
-          description: "VM管理・オートスケーリング",
+          description: "VM 管理・オートスケーリング",
         },
         {
           name: "Kubernetes Engine",
           level: 90,
-          description: "GKEクラスター運用",
+          description: "GKE クラスター運用",
         },
         { name: "Cloud Run", level: 88, description: "サーバーレスコンテナ" },
-        { name: "Cloud SQL", level: 85, description: "マネージドDB運用" },
+        { name: "Cloud SQL", level: 85, description: "マネージド DB 運用" },
         { name: "Cloud Monitoring", level: 92, description: "包括的監視" },
         {
           name: "Cloud Storage",
@@ -38,12 +38,12 @@ export const SkillsSection: React.FC = () => {
       icon: Settings,
       color: "secondary",
       skills: [
-        { name: "Terraform", level: 92, description: "IaCによる自動化" },
+        { name: "Terraform", level: 92, description: "IaC による自動化" },
         { name: "Ansible", level: 85, description: "設定管理自動化" },
         { name: "Docker", level: 90, description: "コンテナ化技術" },
-        { name: "Jenkins", level: 80, description: "CI/CDパイプライン" },
-        { name: "GitLab CI", level: 88, description: "GitOps実装" },
-        { name: "ArgoCD", level: 82, description: "CD自動化" },
+        { name: "Jenkins", level: 80, description: "CI/CD パイプライン" },
+        { name: "GitLab CI", level: 88, description: "GitOps 実装" },
+        { name: "ArgoCD", level: 82, description: "CD 自動化" },
       ],
     },
     {
@@ -77,12 +77,12 @@ export const SkillsSection: React.FC = () => {
       icon: Database,
       color: "danger",
       skills: [
-        { name: "PostgreSQL", level: 85, description: "リレーショナルDB" },
-        { name: "MySQL", level: 88, description: "RDBMS管理" },
+        { name: "PostgreSQL", level: 85, description: "リレーショナル DB" },
+        { name: "MySQL", level: 88, description: "RDBMS 管理" },
         { name: "Redis", level: 82, description: "キャッシュ・セッション管理" },
-        { name: "MongoDB", level: 75, description: "NoSQL運用" },
+        { name: "MongoDB", level: 75, description: "NoSQL 運用" },
         { name: "BigQuery", level: 80, description: "データウェアハウス" },
-        { name: "Cloud Spanner", level: 70, description: "グローバル分散DB" },
+        { name: "Cloud Spanner", level: 70, description: "グローバル分散 DB" },
       ],
     },
     {
@@ -141,7 +141,7 @@ export const SkillsSection: React.FC = () => {
             <span className="gradient-text">技術スタック</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Google Cloudを中心とした最新技術を活用し、
+            Google Cloud を中心とした最新技術を活用し、
             信頼性の高いシステムを構築・運用するための包括的なスキルセットです。
           </p>
         </motion.div>
@@ -231,8 +231,9 @@ export const SkillsSection: React.FC = () => {
                 継続的な学習と成長
               </h3>
               <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
-                クラウド技術とSRE分野は急速に進化しています。最新のトレンドとベストプラクティスを
-                常にキャッチアップし、継続的にスキルセットを拡張しています。
+                クラウド技術と SRE 分野は急速に進化しています。
+                <br />
+                最新のトレンドとベストプラクティスを常にキャッチアップし、継続的にスキルセットを拡張しています。
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {[

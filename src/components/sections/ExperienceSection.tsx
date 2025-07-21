@@ -13,10 +13,10 @@ export const ExperienceSection: React.FC = () => {
       position: "Senior Site Reliability Engineer",
       location: "東京",
       achievements: [
-        "Kubernetesクラスターの設計・運用により、デプロイ時間を80%短縮",
-        "Google Cloud Monitoringを活用した包括的な監視システム構築",
-        "可用性99.95%を達成し、ダウンタイムを年間4.38時間以下に削減",
-        "Terraformによるインフラのコード化で、環境構築時間を90%削減",
+        "Kubernetes クラスターの設計・運用により、デプロイ時間を 80 % 短縮",
+        "Google Cloud Monitoring を活用した包括的な監視システム構築",
+        "可用性 99.95 % を達成し、ダウンタイムを年間 4.38 時間以下に削減",
+        "Terraform によるインフラのコード化で、環境構築時間を 90 % 削減",
       ],
       technologies: [
         "Google Cloud",
@@ -32,10 +32,10 @@ export const ExperienceSection: React.FC = () => {
       position: "Site Reliability Engineer",
       location: "東京",
       achievements: [
-        "マイクロサービスアーキテクチャの移行を主導し、スケーラビリティを300%向上",
-        "CI/CDパイプラインの構築により、リリース頻度を週1回から日次に改善",
-        "インシデント対応プロセスの標準化で、MTTR（平均復旧時間）を60%削減",
-        "チーム内でのSREベストプラクティス教育・普及活動を推進",
+        "マイクロサービスアーキテクチャの移行を主導し、スケーラビリティを 300 % 向上",
+        "CI/CD パイプラインの構築により、リリース頻度を週 1 回から日次に改善",
+        "インシデント対応プロセスの標準化で、MTTR（平均復旧時間）を 60 % 削減",
+        "チーム内での SRE ベストプラクティス教育・普及活動を推進",
       ],
       technologies: [
         "Google Cloud",
@@ -51,9 +51,9 @@ export const ExperienceSection: React.FC = () => {
       position: "DevOps Engineer",
       location: "東京",
       achievements: [
-        "AWSからGoogle Cloudへの全面移行プロジェクトをリード",
-        "オートスケーリング機能の実装で、コストを40%削減しながら性能向上を実現",
-        "モニタリングアラート体系の構築で、障害検知時間を85%短縮",
+        "AWS から Google Cloud への全面移行プロジェクトをリード",
+        "オートスケーリング機能の実装で、コストを 40 % 削減しながら性能向上を実現",
+        "モニタリングアラート体系の構築で、障害検知時間を 85 % 短縮",
         "開発チーム向けのインフラ自動化ツールを開発・提供",
       ],
       technologies: ["Google Cloud", "AWS", "Python", "Bash", "MySQL"],

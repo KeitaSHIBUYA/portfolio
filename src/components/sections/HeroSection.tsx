@@ -54,7 +54,7 @@ export const HeroSection: React.FC = () => {
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Google Cloud認定のSREエンジニアとして、可用性99.9%を実現する
+              Google Cloud 認定の SRE エンジニアとして、可用性 99.9 % を実現する
               <span className="text-gcp-blue font-semibold">
                 {" "}
                 スケーラブルなインフラ{" "}

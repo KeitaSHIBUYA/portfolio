@@ -131,7 +131,7 @@ export const ContactSection: React.FC = () => {
             <span className="gradient-text">お問い合わせ</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            SREプロジェクトのご相談、技術コンサルティング、講演依頼など、
+            SRE プロジェクトのご相談、技術コンサルティング、講演依頼など、
             お気軽にお問い合わせください。迅速に対応いたします。
           </p>
         </motion.div>
@@ -236,7 +236,8 @@ export const ContactSection: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-sm text-foreground/70 leading-relaxed">
-                    現在、新しいSREプロジェクトのご依頼をお受けしております。
+                    現在、新しい SRE プロジェクトのご依頼をお受けしております。
+                    <br />
                     特に、Google Cloud を活用したシステム移行や
                     監視基盤構築のプロジェクトを積極的にサポートしています。
                   </p>
@@ -313,7 +314,9 @@ export const ContactSection: React.FC = () => {
                 <div className="mt-6 p-4 bg-content2 rounded-lg">
                   <p className="text-sm text-foreground/70 text-center">
                     <strong>お返事について：</strong>
-                    いただいたお問い合わせには、原則24時間以内にご返信いたします。
+                    <br />
+                    いただいたお問い合わせには、原則 24
+                    時間以内にご返信いたします。
                     緊急のご相談は、お電話でも承ります。
                   </p>
                 </div>
@@ -337,8 +340,8 @@ export const ContactSection: React.FC = () => {
               </h3>
               <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
                 信頼性、スケーラビリティ、そしてユーザー体験の向上を実現する
-                Google Cloud
-                SREソリューションについて、まずはお気軽にご相談ください。
+                Google Cloud SRE
+                ソリューションについて、まずはお気軽にご相談ください。
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button

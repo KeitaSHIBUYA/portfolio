@@ -24,7 +24,7 @@ export const ProjectsSection: React.FC = () => {
     {
       title: "マルチクラウド監視基盤構築",
       description:
-        "Google Cloud、AWS、Azure間の統合監視システムを構築。Prometheus、Grafana、OpenTelemetryを活用し、3つのクラウドプロバイダーにまたがるインフラの可視化を実現。",
+        "Google Cloud、AWS、Azure 間の統合監視システムを構築。Prometheus、Grafana、OpenTelemetry を活用し、3つのクラウドプロバイダーにまたがるインフラの可視化を実現。",
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       technologies: [
@@ -36,16 +36,16 @@ export const ProjectsSection: React.FC = () => {
         "Terraform",
       ],
       achievements: [
-        "MTTD（平均検知時間）を75%短縮",
-        "運用コストを40%削減",
-        "可用性99.99%を達成",
-        "アラート疲れを85%軽減",
+        "MTTD（平均検知時間）を 75 % 短縮",
+        "運用コストを 40 % 削減",
+        "可用性 99.99 % を達成",
+        "アラート疲れを 85 % 軽減",
       ],
       metrics: {
-        impact: "3つのクラウド統合監視",
+        impact: "3 つのクラウド統合監視",
         users: "500+",
-        uptime: "99.99%",
-        period: "8ヶ月",
+        uptime: "99.99 %",
+        period: "8 ヶ月",
       },
       links: {
         demo: "#",
@@ -55,9 +55,9 @@ export const ProjectsSection: React.FC = () => {
       featured: true,
     },
     {
-      title: "Kubernetes自動スケーリング最適化",
+      title: "Kubernetes 自動スケーリング最適化",
       description:
-        "GKE上でのマイクロサービス群に対して、HPAとVPAを組み合わせた自動スケーリング戦略を実装。機械学習を活用した予測スケーリングによりリソース効率を大幅改善。",
+        "GKE 上でのマイクロサービス群に対して、HPA と VPA を組み合わせた自動スケーリング戦略を実装。機械学習を活用した予測スケーリングによりリソース効率を大幅改善。",
       image:
         "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=600&h=400&fit=crop",
       technologies: [
@@ -69,16 +69,16 @@ export const ProjectsSection: React.FC = () => {
         "Machine Learning",
       ],
       achievements: [
-        "リソース使用率を60%向上",
-        "レスポンス時間を35%改善",
-        "インフラコストを50%削減",
-        "予測精度90%以上を達成",
+        "リソース使用率を 60 % 向上",
+        "レスポンス時間を 35 % 改善",
+        "インフラコストを 50 % 削減",
+        "予測精度 90 % 以上を達成",
       ],
       metrics: {
         impact: "自動スケーリング最適化",
-        users: "10k+",
-        uptime: "99.95%",
-        period: "6ヶ月",
+        users: "10 k+",
+        uptime: "99.95 %",
+        period: "6 ヶ月",
       },
       links: {
         demo: "#",
@@ -90,7 +90,7 @@ export const ProjectsSection: React.FC = () => {
     {
       title: "ゼロダウンタイムデプロイメント",
       description:
-        "Blue-Green デプロイメントとCanary リリースを組み合わせた安全なデプロイメント戦略を確立。Istio Service Meshを活用したトラフィック制御により、本番環境でのリスクを最小化。",
+        "Blue-Green デプロイメントと Canary リリースを組み合わせた安全なデプロイメント戦略を確立。Istio Service Mesh を活用したトラフィック制御により、本番環境でのリスクを最小化。",
       image:
         "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
       technologies: [
@@ -102,10 +102,10 @@ export const ProjectsSection: React.FC = () => {
         "Prometheus",
       ],
       achievements: [
-        "デプロイメント失敗率を95%削減",
-        "ロールバック時間を90%短縮",
+        "デプロイメント失敗率を 95 % 削減",
+        "ロールバック時間を 90 % 短縮",
         "デプロイ頻度を日次に向上",
-        "本番障害ゼロを6ヶ月継続",
+        "本番障害ゼロを 6 ヶ月継続",
       ],
       metrics: {
         impact: "ゼロダウンタイム実現",
@@ -121,9 +121,9 @@ export const ProjectsSection: React.FC = () => {
       featured: true,
     },
     {
-      title: "災害対策・BCP自動化",
+      title: "災害対策・BCP 自動化",
       description:
-        "Google Cloud RegionをまたいだDR（災害復旧）システムを構築。Terraform Cloud とCloud Buildを活用した完全自動化により、RPO/RTOの大幅な短縮を実現。",
+        "Google Cloud Region をまたいだ DR（災害復旧）システムを構築。Terraform Cloud と Cloud Build を活用した完全自動化により、RPO / RTO の大幅な短縮を実現。",
       image:
         "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop",
       technologies: [
@@ -135,16 +135,16 @@ export const ProjectsSection: React.FC = () => {
         "Cloud Functions",
       ],
       achievements: [
-        "RPO（目標復旧時点）15分以内",
-        "RTO（目標復旧時間）30分以内",
-        "DR訓練の自動化を実現",
-        "コンプライアンス100%達成",
+        "RPO（目標復旧時点）15 分以内",
+        "RTO（目標復旧時間）30 分以内",
+        "DR 訓練の自動化を実現",
+        "コンプライアンス 100 % 達成",
       ],
       metrics: {
-        impact: "DR自動化システム",
-        users: "1k+",
-        uptime: "99.9%",
-        period: "10ヶ月",
+        impact: "DR 自動化システム",
+        users: "1 k+",
+        uptime: "99.9 %",
+        period: "10 ヶ月",
       },
       links: {
         demo: "#",
@@ -156,7 +156,7 @@ export const ProjectsSection: React.FC = () => {
     {
       title: "Cost Optimization Dashboard",
       description:
-        "Google Cloud Billing APIとBigQueryを活用したコスト最適化ダッシュボードを開発。リアルタイムのコスト監視と予算アラート、リソース使用率の最適化推奨機能を実装。",
+        "Google Cloud Billing API と BigQuery を活用したコスト最適化ダッシュボードを開発。リアルタイムのコスト監視と予算アラート、リソース使用率の最適化推奨機能を実装。",
       image:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
       technologies: [
@@ -168,16 +168,16 @@ export const ProjectsSection: React.FC = () => {
         "Pub/Sub",
       ],
       achievements: [
-        "月次クラウドコストを30%削減",
-        "リソース無駄遣いを85%削減",
+        "月次クラウドコストを 30 % 削減",
+        "リソース無駄遣いを 85 % 削減",
         "予算超過アラートの自動化",
-        "コスト予測精度95%達成",
+        "コスト予測精度 95 % 達成",
       ],
       metrics: {
         impact: "コスト最適化",
         users: "100+",
-        uptime: "99.9%",
-        period: "3ヶ月",
+        uptime: "99.9 %",
+        period: "3 ヶ月",
       },
       links: {
         demo: "#",
@@ -189,7 +189,7 @@ export const ProjectsSection: React.FC = () => {
     {
       title: "セキュリティ自動化基盤",
       description:
-        "Google Cloud Security Command Centerと連携したセキュリティ自動化システムを構築。脆弱性検出、コンプライアンスチェック、インシデント対応の完全自動化を実現。",
+        "Google Cloud Security Command Center と連携したセキュリティ自動化システムを構築。脆弱性検出、コンプライアンスチェック、インシデント対応の完全自動化を実現。",
       image:
         "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=400&fit=crop",
       technologies: [
@@ -202,15 +202,15 @@ export const ProjectsSection: React.FC = () => {
       ],
       achievements: [
         "セキュリティスキャン自動化",
-        "脆弱性検出時間を90%短縮",
+        "脆弱性検出時間を 90 % 短縮",
         "コンプライアンス報告自動化",
-        "インシデント対応時間を70%削減",
+        "インシデント対応時間を 70 % 削減",
       ],
       metrics: {
         impact: "セキュリティ自動化",
         users: "200+",
-        uptime: "99.95%",
-        period: "7ヶ月",
+        uptime: "99.95 %",
+        period: "7 ヶ月",
       },
       links: {
         demo: "#",
