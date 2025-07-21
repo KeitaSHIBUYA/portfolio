@@ -237,7 +237,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                   <p className="text-sm text-foreground/70 leading-relaxed">
                     現在、新しいSREプロジェクトのご依頼をお受けしております。
-                    特に、Google Cloud Platform を活用したシステム移行や
+                    特に、Google Cloud を活用したシステム移行や
                     監視基盤構築のプロジェクトを積極的にサポートしています。
                   </p>
                 </CardBody>
@@ -378,7 +378,7 @@ export const ContactSection: React.FC = () => {
         className="mt-20 pt-8 border-t border-divider text-center"
       >
         <p className="text-foreground/60">
-          © 2024 Google Cloud SRE Portfolio. Built with Next.js & HeroUI.
+          © 2024 Keita SHIBUYA&apos;s Portfolio.
         </p>
       </motion.div>
     </section>

@@ -28,7 +28,7 @@ export const ProjectsSection: React.FC = () => {
       image:
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
       technologies: [
-        "Google Cloud Platform",
+        "Google Cloud",
         "Prometheus",
         "Grafana",
         "OpenTelemetry",
@@ -127,7 +127,7 @@ export const ProjectsSection: React.FC = () => {
       image:
         "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=600&h=400&fit=crop",
       technologies: [
-        "Google Cloud Platform",
+        "Google Cloud",
         "Terraform Cloud",
         "Cloud Build",
         "Cloud SQL",
@@ -257,7 +257,7 @@ export const ProjectsSection: React.FC = () => {
             <span className="gradient-text">プロジェクト実績</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Google Cloud Platform
+            Google Cloud
             を活用した大規模システムの構築・運用プロジェクトの一部をご紹介します。
             各プロジェクトで実現した具体的な成果と技術的な課題解決をご覧ください。
           </p>

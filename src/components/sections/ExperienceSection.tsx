@@ -19,7 +19,7 @@ export const ExperienceSection: React.FC = () => {
         "Terraformによるインフラのコード化で、環境構築時間を90%削減",
       ],
       technologies: [
-        "Google Cloud Platform",
+        "Google Cloud",
         "Kubernetes",
         "Terraform",
         "Prometheus",
@@ -38,7 +38,7 @@ export const ExperienceSection: React.FC = () => {
         "チーム内でのSREベストプラクティス教育・普及活動を推進",
       ],
       technologies: [
-        "Google Cloud Platform",
+        "Google Cloud",
         "Docker",
         "Jenkins",
         "Ansible",
@@ -51,12 +51,12 @@ export const ExperienceSection: React.FC = () => {
       position: "DevOps Engineer",
       location: "東京",
       achievements: [
-        "AWSからGoogle Cloud Platformへの全面移行プロジェクトをリード",
+        "AWSからGoogle Cloudへの全面移行プロジェクトをリード",
         "オートスケーリング機能の実装で、コストを40%削減しながら性能向上を実現",
         "モニタリングアラート体系の構築で、障害検知時間を85%短縮",
         "開発チーム向けのインフラ自動化ツールを開発・提供",
       ],
-      technologies: ["Google Cloud Platform", "AWS", "Python", "Bash", "MySQL"],
+      technologies: ["Google Cloud", "AWS", "Python", "Bash", "MySQL"],
     },
   ];
 

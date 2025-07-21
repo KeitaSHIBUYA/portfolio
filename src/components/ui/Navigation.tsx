@@ -52,7 +52,9 @@ export const Navigation: React.FC = () => {
           className="sm:hidden"
         />
         <NavbarBrand>
-          <p className="font-bold text-xl gradient-text">SRE Portfolio</p>
+          <p className="font-bold text-xl gradient-text">
+            Keita SHIBUYA&apos;s Portfolio
+          </p>
         </NavbarBrand>
       </NavbarContent>
 

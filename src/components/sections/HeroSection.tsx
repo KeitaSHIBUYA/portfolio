@@ -44,7 +44,7 @@ export const HeroSection: React.FC = () => {
               color="primary"
               className="mb-6"
             >
-              Google Cloud Platform
+              Google Cloud
             </Chip>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">

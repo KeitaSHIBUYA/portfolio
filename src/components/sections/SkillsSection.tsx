@@ -9,7 +9,7 @@ import React from "react";
 export const SkillsSection: React.FC = () => {
   const skillCategories = [
     {
-      title: "Google Cloud Platform",
+      title: "Google Cloud",
       icon: Cloud,
       color: "primary",
       skills: [
@@ -141,7 +141,7 @@ export const SkillsSection: React.FC = () => {
             <span className="gradient-text">技術スタック</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            Google Cloud Platformを中心とした最新技術を活用し、
+            Google Cloudを中心とした最新技術を活用し、
             信頼性の高いシステムを構築・運用するための包括的なスキルセットです。
           </p>
         </motion.div>

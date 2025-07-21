@@ -10,7 +10,7 @@ export const AboutSection: React.FC = () => {
     {
       icon: Cloud,
       title: "クラウドアーキテクチャ",
-      description: "Google Cloud Platformを活用したスケーラブルなシステム設計",
+      description: "Google Cloudを活用したスケーラブルなシステム設計",
       color: "primary",
       ariaLabel: "クラウドアーキテクチャのアイコン",
     },

@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Google Cloud SRE Engineer | Portfolio",
   description:
-    "Site Reliability Engineer specializing in Google Cloud Platform, DevOps, and distributed systems.",
+    "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
   keywords: [
     "Google Cloud",
     "SRE",
@@ -25,14 +25,14 @@ export const metadata: Metadata = {
     url: "https://portfolio-sre.vercel.app",
     title: "Google Cloud SRE Engineer | Portfolio",
     description:
-      "Site Reliability Engineer specializing in Google Cloud Platform, DevOps, and distributed systems.",
-    siteName: "SRE Portfolio",
+      "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
+    siteName: "Keita SHIBUYA's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Google Cloud SRE Engineer | Portfolio",
     description:
-      "Site Reliability Engineer specializing in Google Cloud Platform, DevOps, and distributed systems.",
+      "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
   },
   robots: {
     index: true,
