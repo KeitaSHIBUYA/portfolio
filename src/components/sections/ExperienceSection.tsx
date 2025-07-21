@@ -3,6 +3,7 @@
 import { Card, CardBody, Chip, Divider } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, TrendingUp, Users, Zap } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export const ExperienceSection: React.FC = () => {
@@ -45,37 +46,49 @@ export const ExperienceSection: React.FC = () => {
       name: "Google Cloud Professional Cloud Security Engineer",
       issuer: "Google Cloud",
       year: "2024/11",
-      icon: "🔒",
+      badge: "/images/certifications/security-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/110f84fc-0997-489c-8ef1-1298e6c54712/public_url",
     },
     {
       name: "Google Cloud Professional Cloud Network Engineer",
       issuer: "Google Cloud",
       year: "2024/10",
-      icon: "🌐",
+      badge: "/images/certifications/network-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/7676cce3-a458-410c-acc5-da35eed544fa/public_url",
     },
     {
       name: "Google Cloud Professional DevOps Engineer",
       issuer: "Google Cloud",
       year: "2024/06",
-      icon: "🛠️",
+      badge: "/images/certifications/devops-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/bb4fbf54-0ffe-4944-b7cb-9a25fd28de9f/public_url",
     },
     {
       name: "Google Cloud Professional Cloud Developer",
       issuer: "Google Cloud",
       year: "2024/02",
-      icon: "💻",
+      badge: "/images/certifications/cloud-developer.png",
+      certUrl:
+        "https://www.credly.com/badges/c866bede-d8e9-4862-8059-af6b5a495a37/public_url",
     },
     {
       name: "Google Cloud Professional Cloud Architect",
       issuer: "Google Cloud",
       year: "2023/09",
-      icon: "🏆",
+      badge: "/images/certifications/cloud-architect.png",
+      certUrl:
+        "https://www.credly.com/badges/bb4fbf54-0ffe-4944-b7cb-9a25fd28de9f/public_url",
     },
     {
       name: "Google Cloud Digital Leader",
       issuer: "Google Cloud",
       year: "2023/08",
-      icon: "👑",
+      badge: "/images/certifications/digital-leader.png",
+      certUrl:
+        "https://www.credly.com/badges/32a85fc1-9bf1-4891-8093-dd8d2dd271e8/public_url",
     },
   ];
 
@@ -238,22 +251,31 @@ export const ExperienceSection: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {certifications.map((cert, index) => (
-                      <div key={index} className="p-4 rounded-lg bg-content2">
+                      <a
+                        key={index}
+                        href={cert.certUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block p-4 rounded-lg bg-content2 transition-all duration-300 hover:bg-content3 hover:shadow-lg cursor-pointer"
+                      >
                         <div className="flex items-start">
-                          <span className="text-2xl mr-3">{cert.icon}</span>
+                          <Image
+                            src={cert.badge}
+                            alt={cert.name}
+                            width={48}
+                            height={48}
+                            className="mr-3 object-contain"
+                          />
                           <div>
                             <h4 className="font-semibold text-foreground text-sm">
                               {cert.name}
                             </h4>
-                            <p className="text-foreground/70 text-xs">
-                              {cert.issuer}
-                            </p>
-                            <p className="text-primary text-xs font-medium">
-                              {cert.year}年取得
+                            <p className="text-foreground-500 text-sm">
+                              {cert.issuer} - {cert.year}
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </CardBody>
