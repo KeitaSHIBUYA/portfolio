@@ -8,82 +8,74 @@ import React from "react";
 export const ExperienceSection: React.FC = () => {
   const experiences = [
     {
-      period: "2021年 - 現在",
-      company: "Tech Innovation Inc.",
-      position: "Senior Site Reliability Engineer",
+      period: "2023 年 - 現在",
+      company: "Cloud Ace, Inc.",
+      position: "SRE Engineer - Specialist",
       location: "東京",
       achievements: [
-        "Kubernetes クラスターの設計・運用により、デプロイ時間を 80 % 短縮",
-        "Google Cloud Monitoring を活用した包括的な監視システム構築",
-        "可用性 99.95 % を達成し、ダウンタイムを年間 4.38 時間以下に削減",
-        "Terraform によるインフラのコード化で、環境構築時間を 90 % 削減",
+        "LangChain と Vertex AI Vector Search を活用した RAG チャットボットの設計・開発",
+        "GKE を使用した動画作成・配信サービスのインフラ設計・構築・運用",
+        "Cloud Monitoring を活用した監視機能の設計・構築",
+        "GCE を使用した基幹システム導入環境の設計・構築",
+        "Terraform によるインフラのコード化（IaC）",
+        "Cloud Logging を活用したログ収集・分析・アラートの設計・構築",
+        "Cloud Build を活用した CI/CD パイプラインの設計・構築",
+        "Cloud Run を活用したサーバレスアーキテクチャの設計・構築",
       ],
       technologies: [
         "Google Cloud",
-        "Kubernetes",
         "Terraform",
-        "Prometheus",
-        "Grafana",
-      ],
-    },
-    {
-      period: "2019年 - 2021年",
-      company: "Cloud Systems Corp.",
-      position: "Site Reliability Engineer",
-      location: "東京",
-      achievements: [
-        "マイクロサービスアーキテクチャの移行を主導し、スケーラビリティを 300 % 向上",
-        "CI/CD パイプラインの構築により、リリース頻度を週 1 回から日次に改善",
-        "インシデント対応プロセスの標準化で、MTTR（平均復旧時間）を 60 % 削減",
-        "チーム内での SRE ベストプラクティス教育・普及活動を推進",
-      ],
-      technologies: [
-        "Google Cloud",
+        "Cloud Run",
+        "Cloud Build",
+        "GKE",
+        "Kubernetes",
+        "VPCSC",
+        "GitHub",
         "Docker",
-        "Jenkins",
-        "Ansible",
-        "ELK Stack",
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "Vertex AI",
       ],
-    },
-    {
-      period: "2017年 - 2019年",
-      company: "StartUp Ventures",
-      position: "DevOps Engineer",
-      location: "東京",
-      achievements: [
-        "AWS から Google Cloud への全面移行プロジェクトをリード",
-        "オートスケーリング機能の実装で、コストを 40 % 削減しながら性能向上を実現",
-        "モニタリングアラート体系の構築で、障害検知時間を 85 % 短縮",
-        "開発チーム向けのインフラ自動化ツールを開発・提供",
-      ],
-      technologies: ["Google Cloud", "AWS", "Python", "Bash", "MySQL"],
     },
   ];
 
   const certifications = [
     {
-      name: "Google Cloud Professional Cloud Architect",
+      name: "Google Cloud Professional Cloud Security Engineer",
       issuer: "Google Cloud",
-      year: "2023",
-      icon: "🏆",
+      year: "2024/11",
+      icon: "🔒",
+    },
+    {
+      name: "Google Cloud Professional Cloud Network Engineer",
+      issuer: "Google Cloud",
+      year: "2024/10",
+      icon: "🌐",
     },
     {
       name: "Google Cloud Professional DevOps Engineer",
       issuer: "Google Cloud",
-      year: "2022",
+      year: "2024/06",
       icon: "🛠️",
     },
     {
-      name: "Certified Kubernetes Administrator (CKA)",
-      issuer: "Cloud Native Computing Foundation",
-      year: "2021",
-      icon: "☸️",
+      name: "Google Cloud Professional Cloud Developer",
+      issuer: "Google Cloud",
+      year: "2024/02",
+      icon: "💻",
     },
     {
-      name: "HashiCorp Certified: Terraform Associate",
-      issuer: "HashiCorp",
-      year: "2021",
-      icon: "🔧",
+      name: "Google Cloud Professional Cloud Architect",
+      issuer: "Google Cloud",
+      year: "2023/09",
+      icon: "🏆",
+    },
+    {
+      name: "Google Cloud Digital Leader",
+      issuer: "Google Cloud",
+      year: "2023/08",
+      icon: "👑",
     },
   ];
 
@@ -120,7 +112,8 @@ export const ExperienceSection: React.FC = () => {
             <span className="gradient-text">実績と経験</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            大規模システムの運用から新サービスの立ち上げまで、様々なプロジェクトでSREとしての価値を提供してきました。
+            大規模システムの運用から新サービスの立ち上げまで、様々なプロジェクトで
+            SRE としての価値を提供してきました。
           </p>
         </motion.div>
 
@@ -185,9 +178,9 @@ export const ExperienceSection: React.FC = () => {
                           {exp.achievements.map((achievement, idx) => (
                             <li
                               key={idx}
-                              className="text-foreground/80 flex items-start"
+                              className="text-foreground/80 flex items-center"
                             >
-                              <span className="text-success mr-2 mt-1">▸</span>
+                              <span className="text-success mr-2">▸</span>
                               {achievement}
                             </li>
                           ))}
