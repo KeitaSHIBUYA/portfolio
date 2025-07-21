@@ -48,13 +48,14 @@ export const HeroSection: React.FC = () => {
             </Chip>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="gradient-text">Site Reliability</span>
+              <span className="gradient-text">Keita SHIBUYA&apos;s</span>
               <br />
-              <span className="text-foreground">Engineer</span>
+              <span className="text-foreground">Portfolio</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Google Cloud 認定の SRE エンジニアとして、可用性 99.9 % を実現する
+              Google Cloud を専門とした SRE エンジニアとして
+              <br />
               <span className="text-gcp-blue font-semibold">
                 {" "}
                 スケーラブルなインフラ{" "}
