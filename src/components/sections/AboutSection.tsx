@@ -19,7 +19,7 @@ export const AboutSection: React.FC = () => {
       title: "高可用性設計",
       description:
         "99.9 % 以上のアップタイムを実現する冗長化とフェイルオーバー",
-      color: "secondary",
+      color: "primary",
       ariaLabel: "高可用性設計のアイコン",
     },
     {
@@ -32,8 +32,8 @@ export const AboutSection: React.FC = () => {
     {
       icon: BarChart3,
       title: "監視・分析",
-      description: "Cloud Logging や Cloud Monitoring での包括的監視",
-      color: "secondary",
+      description: "Cloud Logging や Cloud Monitoring での包括的監視と分析",
+      color: "primary",
       ariaLabel: "監視・分析のアイコン",
     },
     {
@@ -46,8 +46,8 @@ export const AboutSection: React.FC = () => {
     {
       icon: Award,
       title: "Google Cloud 認定",
-      description: "複数の Google Cloud Professional 認定取得",
-      color: "secondary",
+      description: "複数の Google Cloud Professional 認定資格を保有",
+      color: "primary",
       ariaLabel: "Google Cloud 認定のアイコン",
     },
   ];
