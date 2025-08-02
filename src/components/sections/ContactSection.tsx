@@ -11,14 +11,14 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import {
+  CheckCircle2,
   Clock,
   Github,
-  Globe,
-  Linkedin,
   Mail,
   MapPin,
   // Phone,
   Send,
+  XCircle,
 } from "lucide-react";
 import React from "react";
 
@@ -29,6 +29,12 @@ export const ContactSection: React.FC = () => {
     company: "",
     message: "",
   });
+
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const contactInfo = [
     {
@@ -91,11 +97,45 @@ export const ContactSection: React.FC = () => {
       }));
     };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理をここに実装
-    console.log("Form submitted:", formData);
-    // 実際の実装では、APIエンドポイントにデータを送信
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "メッセージの送信に失敗しました");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "メッセージが正常に送信されました",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "エラーが発生しました",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -310,9 +350,30 @@ export const ContactSection: React.FC = () => {
                     startContent={<Send size={18} aria-hidden="true" />}
                     className="w-full font-semibold"
                     aria-label="メッセージを送信する"
+                    isLoading={isSubmitting}
+                    isDisabled={isSubmitting}
                   >
-                    メッセージを送信
+                    {isSubmitting ? "送信中..." : "メッセージを送信"}
                   </Button>
+
+                  {submitStatus.type && (
+                    <div
+                      className={`mt-4 p-4 rounded-lg ${
+                        submitStatus.type === "success"
+                          ? "bg-success/10 text-success"
+                          : "bg-danger/10 text-danger"
+                      } flex items-center justify-center gap-2`}
+                    >
+                      {submitStatus.type === "success" ? (
+                        <CheckCircle2 size={20} />
+                      ) : (
+                        <XCircle size={20} />
+                      )}
+                      <p className="text-sm text-center font-bold">
+                        {submitStatus.message}
+                      </p>
+                    </div>
+                  )}
                 </form>
 
                 <div className="mt-6 p-4 bg-content2 rounded-lg">
