@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Google Cloud SRE Engineer | Portfolio",
+  title: "Keita SHIBUYA's Portfolio",
   description:
     "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
   keywords: [
@@ -18,19 +18,28 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "SRE Engineer" }],
   creator: "SRE Engineer",
-  metadataBase: new URL("https://portfolio-sre.vercel.app"),
+  metadataBase: new URL("https://lec-infra.com/"),
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/apple-icon.png",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://portfolio-sre.vercel.app",
-    title: "Google Cloud SRE Engineer | Portfolio",
+    title: "Keita SHIBUYA's Portfolio",
     description:
       "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
     siteName: "Keita SHIBUYA's Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Google Cloud SRE Engineer | Portfolio",
+    title: "Keita SHIBUYA's Portfolio",
     description:
       "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
   },
