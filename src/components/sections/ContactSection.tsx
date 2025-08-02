@@ -357,22 +357,82 @@ export const ContactSection: React.FC = () => {
                   </Button>
 
                   {submitStatus.type && (
-                    <div
-                      className={`mt-4 p-4 rounded-lg ${
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className={`mt-4 p-6 rounded-lg ${
                         submitStatus.type === "success"
                           ? "bg-success/10 text-success"
                           : "bg-danger/10 text-danger"
-                      } flex items-center justify-center gap-2`}
+                      }`}
                     >
-                      {submitStatus.type === "success" ? (
-                        <CheckCircle2 size={20} />
-                      ) : (
-                        <XCircle size={20} />
-                      )}
-                      <p className="text-sm text-center font-bold">
-                        {submitStatus.message}
-                      </p>
-                    </div>
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="relative">
+                          {submitStatus.type === "success" ? (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                              }}
+                            >
+                              <CheckCircle2 size={48} />
+                            </motion.div>
+                          ) : (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                              }}
+                            >
+                              <XCircle size={48} />
+                            </motion.div>
+                          )}
+                        </div>
+                        <div className="text-center">
+                          <h4 className="text-lg font-bold mb-2">
+                            {submitStatus.type === "success"
+                              ? "メッセージを受け付けました"
+                              : "エラーが発生しました"}
+                          </h4>
+                          <p className="text-sm mb-4">
+                            {submitStatus.type === "success"
+                              ? "24 時間以内に担当者からご連絡させていただきます。"
+                              : submitStatus.message}
+                          </p>
+                          {submitStatus.type === "success" && (
+                            <div className="flex flex-wrap justify-center gap-2">
+                              <Button
+                                size="sm"
+                                variant="flat"
+                                color="success"
+                                onClick={() => {
+                                  setSubmitStatus({ type: null, message: "" });
+                                }}
+                              >
+                                新しいメッセージを作成
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="light"
+                                as="a"
+                                href="https://github.com/KeitaSHIBUYA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                GitHubをチェック
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
                   )}
                 </form>
 
