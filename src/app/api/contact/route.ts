@@ -6,8 +6,15 @@ export async function POST(request: Request) {
     const { name, email, company, message } = await request.json();
 
     // 環境変数のチェック
-    if (!process.env.EMAIL_ADDRESS) {
-      throw new Error("メール送信の設定が正しくありません");
+    if (!process.env.EMAIL_ADDRESS || !process.env.EMAIL_APP_PASSWORD) {
+      console.error("Required environment variables are missing");
+      return NextResponse.json(
+        {
+          error:
+            "メール送信の設定が正しくありません。管理者に連絡してください。",
+        },
+        { status: 500 }
+      );
     }
 
     // メール送信の設定
