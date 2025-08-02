@@ -3,87 +3,92 @@
 import { Card, CardBody, Chip, Divider } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import { Calendar, MapPin, TrendingUp, Users, Zap } from "lucide-react";
+import Image from "next/image";
 import React from "react";
 
 export const ExperienceSection: React.FC = () => {
   const experiences = [
     {
-      period: "2021年 - 現在",
-      company: "Tech Innovation Inc.",
-      position: "Senior Site Reliability Engineer",
+      period: "2023 年 - 現在",
+      company: "Cloud Ace, Inc.",
+      position: "SRE Engineer - Specialist",
       location: "東京",
       achievements: [
-        "Kubernetesクラスターの設計・運用により、デプロイ時間を80%短縮",
-        "Google Cloud Monitoringを活用した包括的な監視システム構築",
-        "可用性99.95%を達成し、ダウンタイムを年間4.38時間以下に削減",
-        "Terraformによるインフラのコード化で、環境構築時間を90%削減",
+        "LangChain と Vertex AI Vector Search を活用した RAG チャットボットの設計・開発",
+        "GKE を使用した動画作成・配信サービスのインフラ設計・構築・運用",
+        "Cloud Monitoring を活用した監視機能の設計・構築",
+        "GCE を使用した基幹システム導入環境の設計・構築",
+        "Terraform によるインフラのコード化（IaC）",
+        "Cloud Logging を活用したログ収集・分析・アラートの設計・構築",
+        "Cloud Build を活用した CI/CD パイプラインの設計・構築",
+        "Cloud Run を活用したサーバレスアーキテクチャの設計・構築",
       ],
       technologies: [
-        "Google Cloud Platform",
-        "Kubernetes",
+        "Google Cloud",
         "Terraform",
-        "Prometheus",
-        "Grafana",
-      ],
-    },
-    {
-      period: "2019年 - 2021年",
-      company: "Cloud Systems Corp.",
-      position: "Site Reliability Engineer",
-      location: "東京",
-      achievements: [
-        "マイクロサービスアーキテクチャの移行を主導し、スケーラビリティを300%向上",
-        "CI/CDパイプラインの構築により、リリース頻度を週1回から日次に改善",
-        "インシデント対応プロセスの標準化で、MTTR（平均復旧時間）を60%削減",
-        "チーム内でのSREベストプラクティス教育・普及活動を推進",
-      ],
-      technologies: [
-        "Google Cloud Platform",
+        "Cloud Run",
+        "Cloud Build",
+        "GKE",
+        "Kubernetes",
+        "VPCSC",
+        "GitHub",
         "Docker",
-        "Jenkins",
-        "Ansible",
-        "ELK Stack",
+        "Python",
+        "FastAPI",
+        "LangChain",
+        "Vertex AI",
       ],
-    },
-    {
-      period: "2017年 - 2019年",
-      company: "StartUp Ventures",
-      position: "DevOps Engineer",
-      location: "東京",
-      achievements: [
-        "AWSからGoogle Cloud Platformへの全面移行プロジェクトをリード",
-        "オートスケーリング機能の実装で、コストを40%削減しながら性能向上を実現",
-        "モニタリングアラート体系の構築で、障害検知時間を85%短縮",
-        "開発チーム向けのインフラ自動化ツールを開発・提供",
-      ],
-      technologies: ["Google Cloud Platform", "AWS", "Python", "Bash", "MySQL"],
     },
   ];
 
   const certifications = [
     {
-      name: "Google Cloud Professional Cloud Architect",
+      name: "Google Cloud Professional Cloud Security Engineer",
       issuer: "Google Cloud",
-      year: "2023",
-      icon: "🏆",
+      year: "2024/11",
+      badge: "/images/certifications/security-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/110f84fc-0997-489c-8ef1-1298e6c54712/public_url",
+    },
+    {
+      name: "Google Cloud Professional Cloud Network Engineer",
+      issuer: "Google Cloud",
+      year: "2024/10",
+      badge: "/images/certifications/network-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/7676cce3-a458-410c-acc5-da35eed544fa/public_url",
     },
     {
       name: "Google Cloud Professional DevOps Engineer",
       issuer: "Google Cloud",
-      year: "2022",
-      icon: "🛠️",
+      year: "2024/06",
+      badge: "/images/certifications/devops-engineer.png",
+      certUrl:
+        "https://www.credly.com/badges/bb4fbf54-0ffe-4944-b7cb-9a25fd28de9f/public_url",
     },
     {
-      name: "Certified Kubernetes Administrator (CKA)",
-      issuer: "Cloud Native Computing Foundation",
-      year: "2021",
-      icon: "☸️",
+      name: "Google Cloud Professional Cloud Developer",
+      issuer: "Google Cloud",
+      year: "2024/02",
+      badge: "/images/certifications/cloud-developer.png",
+      certUrl:
+        "https://www.credly.com/badges/c866bede-d8e9-4862-8059-af6b5a495a37/public_url",
     },
     {
-      name: "HashiCorp Certified: Terraform Associate",
-      issuer: "HashiCorp",
-      year: "2021",
-      icon: "🔧",
+      name: "Google Cloud Professional Cloud Architect",
+      issuer: "Google Cloud",
+      year: "2023/09",
+      badge: "/images/certifications/cloud-architect.png",
+      certUrl:
+        "https://www.credly.com/badges/bb4fbf54-0ffe-4944-b7cb-9a25fd28de9f/public_url",
+    },
+    {
+      name: "Google Cloud Digital Leader",
+      issuer: "Google Cloud",
+      year: "2023/08",
+      badge: "/images/certifications/digital-leader.png",
+      certUrl:
+        "https://www.credly.com/badges/32a85fc1-9bf1-4891-8093-dd8d2dd271e8/public_url",
     },
   ];
 
@@ -120,7 +125,9 @@ export const ExperienceSection: React.FC = () => {
             <span className="gradient-text">実績と経験</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            大規模システムの運用から新サービスの立ち上げまで、様々なプロジェクトでSREとしての価値を提供してきました。
+            大規模システムの運用から新サービスの立ち上げまで、
+            <br />
+            様々なプロジェクトで SRE としての価値を提供してきました。
           </p>
         </motion.div>
 
@@ -185,9 +192,9 @@ export const ExperienceSection: React.FC = () => {
                           {exp.achievements.map((achievement, idx) => (
                             <li
                               key={idx}
-                              className="text-foreground/80 flex items-start"
+                              className="text-foreground/80 flex items-center"
                             >
-                              <span className="text-success mr-2 mt-1">▸</span>
+                              <span className="text-success mr-2">▸</span>
                               {achievement}
                             </li>
                           ))}
@@ -245,22 +252,31 @@ export const ExperienceSection: React.FC = () => {
                   </h3>
                   <div className="space-y-4">
                     {certifications.map((cert, index) => (
-                      <div key={index} className="p-4 rounded-lg bg-content2">
+                      <a
+                        key={index}
+                        href={cert.certUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block p-4 rounded-lg bg-content2 transition-all duration-300 hover:bg-content3 hover:shadow-lg cursor-pointer"
+                      >
                         <div className="flex items-start">
-                          <span className="text-2xl mr-3">{cert.icon}</span>
+                          <Image
+                            src={cert.badge}
+                            alt={cert.name}
+                            width={48}
+                            height={48}
+                            className="mr-3 object-contain"
+                          />
                           <div>
                             <h4 className="font-semibold text-foreground text-sm">
                               {cert.name}
                             </h4>
-                            <p className="text-foreground/70 text-xs">
-                              {cert.issuer}
-                            </p>
-                            <p className="text-primary text-xs font-medium">
-                              {cert.year}年取得
+                            <p className="text-foreground-500 text-sm">
+                              {cert.issuer} - {cert.year}
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     ))}
                   </div>
                 </CardBody>

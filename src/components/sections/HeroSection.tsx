@@ -2,7 +2,8 @@
 
 import { Button, Chip } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { ArrowDown, Cloud, Github, Linkedin, Mail } from "lucide-react";
+// import { ArrowDown, Cloud, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Cloud, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 export const HeroSection: React.FC = () => {
@@ -44,17 +45,18 @@ export const HeroSection: React.FC = () => {
               color="primary"
               className="mb-6"
             >
-              Google Cloud Platform
+              Google Cloud
             </Chip>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              <span className="gradient-text">Site Reliability</span>
+              <span className="gradient-text">Keita SHIBUYA&apos;s</span>
               <br />
-              <span className="text-foreground">Engineer</span>
+              <span className="text-foreground">Portfolio</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Google Cloud認定のSREエンジニアとして、可用性99.9%を実現する
+              Google Cloud を専門とした SRE エンジニアとして
+              <br />
               <span className="text-gcp-blue font-semibold">
                 {" "}
                 スケーラブルなインフラ{" "}
@@ -101,14 +103,14 @@ export const HeroSection: React.FC = () => {
               color="default"
               size="lg"
               as="a"
-              href="https://github.com"
+              href="https://github.com/KeitaSHIBUYA"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHubプロフィールを開く"
             >
               <Github size={20} />
             </Button>
-            <Button
+            {/* <Button
               isIconOnly
               variant="flat"
               color="default"
@@ -127,11 +129,11 @@ export const HeroSection: React.FC = () => {
               color="default"
               size="lg"
               as="a"
-              href="mailto:contact@example.com"
+              href="mailto:shibuya.keita@lec-infra.com"
               aria-label="メールを送信"
             >
               <Mail size={20} />
-            </Button>
+            </Button> */}
           </motion.div>
 
           <motion.div

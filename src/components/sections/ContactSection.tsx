@@ -11,14 +11,14 @@ import {
 } from "@nextui-org/react";
 import { motion } from "framer-motion";
 import {
+  CheckCircle2,
   Clock,
   Github,
-  Globe,
-  Linkedin,
   Mail,
   MapPin,
-  Phone,
+  // Phone,
   Send,
+  XCircle,
 } from "lucide-react";
 import React from "react";
 
@@ -30,21 +30,27 @@ export const ContactSection: React.FC = () => {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitStatus, setSubmitStatus] = React.useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
+
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "contact@sre-portfolio.com",
-      href: "mailto:contact@sre-portfolio.com",
+      label: "Email（準備中）",
+      value: "shibuya.keita@lec-infra.com",
+      href: "mailto:shibuya.keita@lec-infra.com",
       color: "primary",
     },
-    {
-      icon: Phone,
-      label: "電話",
-      value: "+81-90-1234-5678",
-      href: "tel:+81901234567",
-      color: "secondary",
-    },
+    // {
+    //   icon: Phone,
+    //   label: "電話",
+    //   value: "+81-90-1234-5678",
+    //   href: "tel:+81901234567",
+    //   color: "secondary",
+    // },
     {
       icon: MapPin,
       label: "所在地",
@@ -65,21 +71,21 @@ export const ContactSection: React.FC = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/KeitaSHIBUYA",
       color: "default",
     },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com",
-      color: "primary",
-    },
-    {
-      icon: Globe,
-      label: "Blog",
-      href: "https://blog.example.com",
-      color: "secondary",
-    },
+    // {
+    //   icon: Linkedin,
+    //   label: "LinkedIn",
+    //   href: "https://linkedin.com",
+    //   color: "primary",
+    // },
+    // {
+    //   icon: Globe,
+    //   label: "Blog",
+    //   href: "https://blog.example.com",
+    //   color: "secondary",
+    // },
   ];
 
   const handleInputChange =
@@ -91,11 +97,45 @@ export const ContactSection: React.FC = () => {
       }));
     };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理をここに実装
-    console.log("Form submitted:", formData);
-    // 実際の実装では、APIエンドポイントにデータを送信
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: "" });
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "メッセージの送信に失敗しました");
+      }
+
+      setSubmitStatus({
+        type: "success",
+        message: "メッセージが正常に送信されました",
+      });
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: "",
+      });
+    } catch (error) {
+      setSubmitStatus({
+        type: "error",
+        message:
+          error instanceof Error ? error.message : "エラーが発生しました",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const containerVariants = {
@@ -131,7 +171,8 @@ export const ContactSection: React.FC = () => {
             <span className="gradient-text">お問い合わせ</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            SREプロジェクトのご相談、技術コンサルティング、講演依頼など、
+            SRE プロジェクトのご相談、技術コンサルティング、講演依頼など、
+            <br />
             お気軽にお問い合わせください。迅速に対応いたします。
           </p>
         </motion.div>
@@ -144,6 +185,61 @@ export const ContactSection: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
+            {/* Status Block */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <Card className="glass">
+                <CardBody className="p-6">
+                  <h4 className="text-lg font-bold mb-3 text-foreground">
+                    現在のステータス
+                  </h4>
+                  <div className="flex items-center mb-4">
+                    <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
+                    <span className="text-success font-semibold">
+                      副業停止中
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">
+                    現在、Cloud Ace で SRE エンジニアとして働いています。
+                    <br />
+                    副業可能ではありますが、今は本業に集中しています。
+                  </p>
+                </CardBody>
+              </Card>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <Card className="glass">
+                <CardBody className="p-6">
+                  <h4 className="text-lg font-bold mb-4 text-foreground">
+                    ソーシャルメディア
+                  </h4>
+                  <div className="flex gap-4">
+                    {socialLinks.map((social, index) => {
+                      const IconComponent = social.icon;
+                      return (
+                        <Button
+                          key={index}
+                          isIconOnly
+                          variant="flat"
+                          color={social.color as NextUIColor}
+                          size="lg"
+                          as="a"
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:scale-105 transition-transform"
+                          aria-label={`${social.label}を開く`}
+                        >
+                          <IconComponent size={20} aria-hidden="true" />
+                        </Button>
+                      );
+                    })}
+                  </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+
             <h3 className="text-2xl font-bold mb-8 text-foreground">
               連絡先情報
             </h3>
@@ -192,60 +288,9 @@ export const ContactSection: React.FC = () => {
                 );
               })}
             </div>
-
-            {/* Social Links */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-bold mb-4 text-foreground">
-                ソーシャルメディア
-              </h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <Button
-                      key={index}
-                      isIconOnly
-                      variant="flat"
-                      color={social.color as NextUIColor}
-                      size="lg"
-                      as="a"
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:scale-105 transition-transform"
-                      aria-label={`${social.label}を開く`}
-                    >
-                      <IconComponent size={20} aria-hidden="true" />
-                    </Button>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Availability Status */}
-            <motion.div variants={itemVariants} className="mt-8">
-              <Card className="glass">
-                <CardBody className="p-6">
-                  <h4 className="text-lg font-bold mb-3 text-foreground">
-                    現在のステータス
-                  </h4>
-                  <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
-                    <span className="text-success font-semibold">
-                      新規プロジェクト受付中
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    現在、新しいSREプロジェクトのご依頼をお受けしております。
-                    特に、Google Cloud Platform を活用したシステム移行や
-                    監視基盤構築のプロジェクトを積極的にサポートしています。
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -279,7 +324,7 @@ export const ContactSection: React.FC = () => {
 
                   <Input
                     label="メールアドレス"
-                    placeholder="contact@example.com"
+                    placeholder="yamada.taro@example.com"
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange("email")}
@@ -305,16 +350,98 @@ export const ContactSection: React.FC = () => {
                     startContent={<Send size={18} aria-hidden="true" />}
                     className="w-full font-semibold"
                     aria-label="メッセージを送信する"
+                    isLoading={isSubmitting}
+                    isDisabled={isSubmitting}
                   >
-                    メッセージを送信
+                    {isSubmitting ? "送信中..." : "メッセージを送信"}
                   </Button>
+
+                  {submitStatus.type && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                      className={`mt-4 p-6 rounded-lg ${
+                        submitStatus.type === "success"
+                          ? "bg-success/10 text-success"
+                          : "bg-danger/10 text-danger"
+                      }`}
+                    >
+                      <div className="flex flex-col items-center gap-4">
+                        <div className="relative">
+                          {submitStatus.type === "success" ? (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                              }}
+                            >
+                              <CheckCircle2 size={48} />
+                            </motion.div>
+                          ) : (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 260,
+                                damping: 20,
+                              }}
+                            >
+                              <XCircle size={48} />
+                            </motion.div>
+                          )}
+                        </div>
+                        <div className="text-center">
+                          <h4 className="text-lg font-bold mb-2">
+                            {submitStatus.type === "success"
+                              ? "メッセージを受け付けました"
+                              : "エラーが発生しました"}
+                          </h4>
+                          <p className="text-sm mb-4">
+                            {submitStatus.type === "success"
+                              ? "24 時間以内に担当者からご連絡させていただきます。"
+                              : submitStatus.message}
+                          </p>
+                          {submitStatus.type === "success" && (
+                            <div className="flex flex-wrap justify-center gap-2">
+                              <Button
+                                size="sm"
+                                variant="flat"
+                                color="success"
+                                onClick={() => {
+                                  setSubmitStatus({ type: null, message: "" });
+                                }}
+                              >
+                                新しいメッセージを作成
+                              </Button>
+                              <Button
+                                size="sm"
+                                variant="light"
+                                as="a"
+                                href="https://github.com/KeitaSHIBUYA"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                GitHubをチェック
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
                 </form>
 
                 <div className="mt-6 p-4 bg-content2 rounded-lg">
                   <p className="text-sm text-foreground/70 text-center">
                     <strong>お返事について：</strong>
-                    いただいたお問い合わせには、原則24時間以内にご返信いたします。
-                    緊急のご相談は、お電話でも承ります。
+                    <br />
+                    いただいたお問い合わせには、原則 24
+                    時間以内にご返信いたします。
                   </p>
                 </div>
               </CardBody>
@@ -330,15 +457,15 @@ export const ContactSection: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <Card className="glass max-w-4xl mx-auto">
+          {/* <Card className="glass max-w-4xl mx-auto">
             <CardBody className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">
                 一緒により良いシステムを作りませんか？
               </h3>
               <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
                 信頼性、スケーラビリティ、そしてユーザー体験の向上を実現する
-                Google Cloud
-                SREソリューションについて、まずはお気軽にご相談ください。
+                Google Cloud SRE
+                ソリューションについて、まずはお気軽にご相談ください。
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button
@@ -346,7 +473,7 @@ export const ContactSection: React.FC = () => {
                   size="lg"
                   startContent={<Mail size={18} aria-hidden="true" />}
                   as="a"
-                  href="mailto:contact@sre-portfolio.com"
+                  href="mailto:shibuya.keita@lec-infra.com"
                   className="font-semibold"
                   aria-label="メールで相談する"
                 >
@@ -365,7 +492,7 @@ export const ContactSection: React.FC = () => {
                 </Button>
               </div>
             </CardBody>
-          </Card>
+          </Card> */}
         </motion.div>
       </div>
 
@@ -378,7 +505,7 @@ export const ContactSection: React.FC = () => {
         className="mt-20 pt-8 border-t border-divider text-center"
       >
         <p className="text-foreground/60">
-          © 2024 Google Cloud SRE Portfolio. Built with Next.js & HeroUI.
+          © 2024 Keita SHIBUYA&apos;s Portfolio.
         </p>
       </motion.div>
     </section>

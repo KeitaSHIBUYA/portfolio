@@ -10,44 +10,45 @@ export const AboutSection: React.FC = () => {
     {
       icon: Cloud,
       title: "クラウドアーキテクチャ",
-      description: "Google Cloud Platformを活用したスケーラブルなシステム設計",
+      description: "Google Cloud を活用したスケーラブルなシステム設計",
       color: "primary",
       ariaLabel: "クラウドアーキテクチャのアイコン",
     },
     {
       icon: Shield,
       title: "高可用性設計",
-      description: "99.9%以上のアップタイムを実現する冗長化とフェイルオーバー",
-      color: "secondary",
+      description:
+        "99.9 % 以上のアップタイムを実現する冗長化とフェイルオーバー",
+      color: "primary",
       ariaLabel: "高可用性設計のアイコン",
     },
     {
       icon: Server,
       title: "インフラ自動化",
-      description: "Terraform、Ansible、Kubernetesを使った完全自動化",
+      description: "Terraform や Kubernetes を使ったインフラの自動化",
       color: "primary",
       ariaLabel: "インフラ自動化のアイコン",
     },
     {
       icon: BarChart3,
       title: "監視・分析",
-      description: "Prometheus、Grafana、Cloud Monitoringでの包括的監視",
-      color: "secondary",
+      description: "Cloud Logging や Cloud Monitoring での包括的監視と分析",
+      color: "primary",
       ariaLabel: "監視・分析のアイコン",
     },
     {
       icon: Users,
-      title: "DevOpsカルチャー",
+      title: "DevOps カルチャー",
       description: "開発チームとの協業で継続的なデリバリーを実現",
       color: "primary",
-      ariaLabel: "DevOpsカルチャーのアイコン",
+      ariaLabel: "DevOps カルチャーのアイコン",
     },
     {
       icon: Award,
-      title: "Google Cloud認定",
-      description: "Professional Cloud Architect & DevOps Engineer認定取得",
-      color: "secondary",
-      ariaLabel: "Google Cloud認定のアイコン",
+      title: "Google Cloud 認定",
+      description: "複数の Google Cloud Professional 認定資格を保有",
+      color: "primary",
+      ariaLabel: "Google Cloud 認定のアイコン",
     },
   ];
 
@@ -86,8 +87,8 @@ export const AboutSection: React.FC = () => {
             のスペシャリスト
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            5年以上のSRE経験を持ち、Google Cloud
-            Platformを活用した大規模システムの設計・運用に携わってきました。
+            2 年以上の SRE 経験を持ち、Google Cloud
+            を活用した大規模システムの設計・運用に携わってきました。
             可用性、スケーラビリティ、パフォーマンスの最適化を通じて、ビジネスの成長を技術面で支えています。
           </p>
         </motion.div>

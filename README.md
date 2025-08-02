@@ -1,6 +1,6 @@
 # Google Cloud SRE エンジニア ポートフォリオ
 
-Next.jsとHeroUIを使用して構築されたモダンなポートフォリオサイトです。Google Cloud Platform専門のSite Reliability Engineerとしての経験、スキル、プロジェクト実績を紹介します。
+Next.jsとHeroUIを使用して構築されたモダンなポートフォリオサイトです。Google Cloud専門のSite Reliability Engineerとしての経験、スキル、プロジェクト実績を紹介します。
 
 ## 🚀 技術スタック
 
