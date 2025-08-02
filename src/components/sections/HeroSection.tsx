@@ -102,14 +102,14 @@ export const HeroSection: React.FC = () => {
               color="default"
               size="lg"
               as="a"
-              href="https://github.com"
+              href="https://github.com/KeitaSHIBUYA"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHubプロフィールを開く"
             >
               <Github size={20} />
             </Button>
-            <Button
+            {/* <Button
               isIconOnly
               variant="flat"
               color="default"
@@ -128,11 +128,11 @@ export const HeroSection: React.FC = () => {
               color="default"
               size="lg"
               as="a"
-              href="mailto:contact@example.com"
+              href="mailto:shibuya.keita@lec-infra.com"
               aria-label="メールを送信"
             >
               <Mail size={20} />
-            </Button>
+            </Button> */}
           </motion.div>
 
           <motion.div

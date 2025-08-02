@@ -17,7 +17,7 @@ import {
   Linkedin,
   Mail,
   MapPin,
-  Phone,
+  // Phone,
   Send,
 } from "lucide-react";
 import React from "react";
@@ -33,18 +33,18 @@ export const ContactSection: React.FC = () => {
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email",
-      value: "contact@sre-portfolio.com",
-      href: "mailto:contact@sre-portfolio.com",
+      label: "Email（準備中）",
+      value: "shibuya.keita@lec-infra.com",
+      href: "mailto:shibuya.keita@lec-infra.com",
       color: "primary",
     },
-    {
-      icon: Phone,
-      label: "電話",
-      value: "+81-90-1234-5678",
-      href: "tel:+81901234567",
-      color: "secondary",
-    },
+    // {
+    //   icon: Phone,
+    //   label: "電話",
+    //   value: "+81-90-1234-5678",
+    //   href: "tel:+81901234567",
+    //   color: "secondary",
+    // },
     {
       icon: MapPin,
       label: "所在地",
@@ -65,21 +65,21 @@ export const ContactSection: React.FC = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com",
+      href: "https://github.com/KeitaSHIBUYA",
       color: "default",
     },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      href: "https://linkedin.com",
-      color: "primary",
-    },
-    {
-      icon: Globe,
-      label: "Blog",
-      href: "https://blog.example.com",
-      color: "secondary",
-    },
+    // {
+    //   icon: Linkedin,
+    //   label: "LinkedIn",
+    //   href: "https://linkedin.com",
+    //   color: "primary",
+    // },
+    // {
+    //   icon: Globe,
+    //   label: "Blog",
+    //   href: "https://blog.example.com",
+    //   color: "secondary",
+    // },
   ];
 
   const handleInputChange =
@@ -132,6 +132,7 @@ export const ContactSection: React.FC = () => {
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             SRE プロジェクトのご相談、技術コンサルティング、講演依頼など、
+            <br />
             お気軽にお問い合わせください。迅速に対応いたします。
           </p>
         </motion.div>
@@ -144,6 +145,61 @@ export const ContactSection: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true }}
           >
+            {/* Status Block */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <Card className="glass">
+                <CardBody className="p-6">
+                  <h4 className="text-lg font-bold mb-3 text-foreground">
+                    現在のステータス
+                  </h4>
+                  <div className="flex items-center mb-4">
+                    <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
+                    <span className="text-success font-semibold">
+                      副業停止中
+                    </span>
+                  </div>
+                  <p className="text-sm text-foreground/70 leading-relaxed">
+                    現在、Cloud Ace で SRE エンジニアとして働いています。
+                    <br />
+                    副業可能ではありますが、今は本業に集中しています。
+                  </p>
+                </CardBody>
+              </Card>
+            </motion.div>
+
+            {/* Social Links */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <Card className="glass">
+                <CardBody className="p-6">
+                  <h4 className="text-lg font-bold mb-4 text-foreground">
+                    ソーシャルメディア
+                  </h4>
+                  <div className="flex gap-4">
+                    {socialLinks.map((social, index) => {
+                      const IconComponent = social.icon;
+                      return (
+                        <Button
+                          key={index}
+                          isIconOnly
+                          variant="flat"
+                          color={social.color as NextUIColor}
+                          size="lg"
+                          as="a"
+                          href={social.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:scale-105 transition-transform"
+                          aria-label={`${social.label}を開く`}
+                        >
+                          <IconComponent size={20} aria-hidden="true" />
+                        </Button>
+                      );
+                    })}
+                  </div>
+                </CardBody>
+              </Card>
+            </motion.div>
+
             <h3 className="text-2xl font-bold mb-8 text-foreground">
               連絡先情報
             </h3>
@@ -192,61 +248,9 @@ export const ContactSection: React.FC = () => {
                 );
               })}
             </div>
-
-            {/* Social Links */}
-            <motion.div variants={itemVariants}>
-              <h4 className="text-lg font-bold mb-4 text-foreground">
-                ソーシャルメディア
-              </h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <Button
-                      key={index}
-                      isIconOnly
-                      variant="flat"
-                      color={social.color as NextUIColor}
-                      size="lg"
-                      as="a"
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:scale-105 transition-transform"
-                      aria-label={`${social.label}を開く`}
-                    >
-                      <IconComponent size={20} aria-hidden="true" />
-                    </Button>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Availability Status */}
-            <motion.div variants={itemVariants} className="mt-8">
-              <Card className="glass">
-                <CardBody className="p-6">
-                  <h4 className="text-lg font-bold mb-3 text-foreground">
-                    現在のステータス
-                  </h4>
-                  <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
-                    <span className="text-success font-semibold">
-                      新規プロジェクト受付中
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    現在、新しい SRE プロジェクトのご依頼をお受けしております。
-                    <br />
-                    特に、Google Cloud を活用したシステム移行や
-                    監視基盤構築のプロジェクトを積極的にサポートしています。
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
           </motion.div>
 
-          {/* Contact Form */}
+          {/* Contact Form Column */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -280,7 +284,7 @@ export const ContactSection: React.FC = () => {
 
                   <Input
                     label="メールアドレス"
-                    placeholder="contact@example.com"
+                    placeholder="yamada.taro@example.com"
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange("email")}
@@ -317,7 +321,6 @@ export const ContactSection: React.FC = () => {
                     <br />
                     いただいたお問い合わせには、原則 24
                     時間以内にご返信いたします。
-                    緊急のご相談は、お電話でも承ります。
                   </p>
                 </div>
               </CardBody>
@@ -333,7 +336,7 @@ export const ContactSection: React.FC = () => {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <Card className="glass max-w-4xl mx-auto">
+          {/* <Card className="glass max-w-4xl mx-auto">
             <CardBody className="p-8">
               <h3 className="text-2xl font-bold mb-4 gradient-text">
                 一緒により良いシステムを作りませんか？
@@ -349,7 +352,7 @@ export const ContactSection: React.FC = () => {
                   size="lg"
                   startContent={<Mail size={18} aria-hidden="true" />}
                   as="a"
-                  href="mailto:contact@sre-portfolio.com"
+                  href="mailto:shibuya.keita@lec-infra.com"
                   className="font-semibold"
                   aria-label="メールで相談する"
                 >
@@ -368,7 +371,7 @@ export const ContactSection: React.FC = () => {
                 </Button>
               </div>
             </CardBody>
-          </Card>
+          </Card> */}
         </motion.div>
       </div>
 

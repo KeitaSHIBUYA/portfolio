@@ -125,8 +125,9 @@ export const ExperienceSection: React.FC = () => {
             <span className="gradient-text">実績と経験</span>
           </h2>
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
-            大規模システムの運用から新サービスの立ち上げまで、様々なプロジェクトで
-            SRE としての価値を提供してきました。
+            大規模システムの運用から新サービスの立ち上げまで、
+            <br />
+            様々なプロジェクトで SRE としての価値を提供してきました。
           </p>
         </motion.div>
 

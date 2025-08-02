@@ -22,7 +22,7 @@ import React from "react";
 export const ProjectsSection: React.FC = () => {
   const projects = [
     {
-      title: "マルチクラウド監視基盤構築",
+      title: "マルチクラウド監視基盤構築（Sample）",
       description:
         "Google Cloud、AWS、Azure 間の統合監視システムを構築。Prometheus、Grafana、OpenTelemetry を活用し、3つのクラウドプロバイダーにまたがるインフラの可視化を実現。",
       image:
@@ -55,7 +55,7 @@ export const ProjectsSection: React.FC = () => {
       featured: true,
     },
     {
-      title: "Kubernetes 自動スケーリング最適化",
+      title: "Kubernetes 自動スケーリング最適化（Sample）",
       description:
         "GKE 上でのマイクロサービス群に対して、HPA と VPA を組み合わせた自動スケーリング戦略を実装。機械学習を活用した予測スケーリングによりリソース効率を大幅改善。",
       image:
@@ -88,7 +88,7 @@ export const ProjectsSection: React.FC = () => {
       featured: true,
     },
     {
-      title: "ゼロダウンタイムデプロイメント",
+      title: "ゼロダウンタイムデプロイメント（Sample）",
       description:
         "Blue-Green デプロイメントと Canary リリースを組み合わせた安全なデプロイメント戦略を確立。Istio Service Mesh を活用したトラフィック制御により、本番環境でのリスクを最小化。",
       image:
@@ -121,7 +121,7 @@ export const ProjectsSection: React.FC = () => {
       featured: true,
     },
     {
-      title: "災害対策・BCP 自動化",
+      title: "災害対策・BCP 自動化（Sample）",
       description:
         "Google Cloud Region をまたいだ DR（災害復旧）システムを構築。Terraform Cloud と Cloud Build を活用した完全自動化により、RPO / RTO の大幅な短縮を実現。",
       image:
@@ -154,7 +154,7 @@ export const ProjectsSection: React.FC = () => {
       featured: false,
     },
     {
-      title: "Cost Optimization Dashboard",
+      title: "Cost Optimization Dashboard（Sample）",
       description:
         "Google Cloud Billing API と BigQuery を活用したコスト最適化ダッシュボードを開発。リアルタイムのコスト監視と予算アラート、リソース使用率の最適化推奨機能を実装。",
       image:
@@ -187,7 +187,7 @@ export const ProjectsSection: React.FC = () => {
       featured: false,
     },
     {
-      title: "セキュリティ自動化基盤",
+      title: "セキュリティ自動化基盤（Sample）",
       description:
         "Google Cloud Security Command Center と連携したセキュリティ自動化システムを構築。脆弱性検出、コンプライアンスチェック、インシデント対応の完全自動化を実現。",
       image:

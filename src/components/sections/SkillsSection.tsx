@@ -14,22 +14,39 @@ export const SkillsSection: React.FC = () => {
       color: "primary",
       skills: [
         {
+          name: "Cloud Run",
+          level: 90,
+          description: "サーバーレスコンテナ実行環境",
+        },
+        {
+          name: "Cloud Load Balancing",
+          level: 80,
+          description: "分散型アーキテクチャ",
+        },
+        {
+          name: "Cloud Armor",
+          level: 70,
+          description: "WAF 運用",
+        },
+        {
+          name: "VPC Service Controls",
+          level: 70,
+          description: "API アクセス制御",
+        },
+        {
+          name: "NotebookLM for Enteprise",
+          level: 70,
+          description: "AI ノートブック環境",
+        },
+        {
           name: "Compute Engine",
-          level: 95,
+          level: 60,
           description: "VM 管理・オートスケーリング",
         },
         {
           name: "Kubernetes Engine",
-          level: 90,
+          level: 50,
           description: "GKE クラスター運用",
-        },
-        { name: "Cloud Run", level: 88, description: "サーバーレスコンテナ" },
-        { name: "Cloud SQL", level: 85, description: "マネージド DB 運用" },
-        { name: "Cloud Monitoring", level: 92, description: "包括的監視" },
-        {
-          name: "Cloud Storage",
-          level: 90,
-          description: "オブジェクトストレージ",
         },
       ],
     },
@@ -38,12 +55,25 @@ export const SkillsSection: React.FC = () => {
       icon: Settings,
       color: "secondary",
       skills: [
-        { name: "Terraform", level: 92, description: "IaC による自動化" },
-        { name: "Ansible", level: 85, description: "設定管理自動化" },
-        { name: "Docker", level: 90, description: "コンテナ化技術" },
-        { name: "Jenkins", level: 80, description: "CI/CD パイプライン" },
-        { name: "GitLab CI", level: 88, description: "GitOps 実装" },
-        { name: "ArgoCD", level: 82, description: "CD 自動化" },
+        {
+          name: "Terraform",
+          level: 90,
+          description: "IaC によるインフラ自動化",
+        },
+        { name: "Cloud Build", level: 90, description: "CI/CD パイプライン" },
+        { name: "Docker", level: 80, description: "コンテナ化技術" },
+        {
+          name: "GitHub Actions",
+          level: 80,
+          description: "CI/CD パイプライン",
+        },
+        { name: "Cloud Deploy", level: 80, description: "CD パイプライン" },
+        { name: "Kustomize", level: 60, description: "Kubernetes 設定管理" },
+        {
+          name: "Skaffold",
+          level: 50,
+          description: "CI/CD オーケストレーションツール",
+        },
       ],
     },
     {
@@ -51,12 +81,20 @@ export const SkillsSection: React.FC = () => {
       icon: Monitor,
       color: "success",
       skills: [
-        { name: "Prometheus", level: 90, description: "メトリクス収集" },
-        { name: "Grafana", level: 88, description: "ダッシュボード構築" },
-        { name: "ELK Stack", level: 85, description: "ログ分析基盤" },
-        { name: "Jaeger", level: 78, description: "分散トレーシング" },
-        { name: "OpenTelemetry", level: 75, description: "観測可能性" },
-        { name: "Datadog", level: 80, description: "APM・インフラ監視" },
+        {
+          name: "Cloud Monitoring",
+          level: 80,
+          description: "包括的メトリクス監視",
+        },
+        {
+          name: "Cloud Logging",
+          level: 80,
+          description: "ログ収集・分析",
+        },
+        { name: "Cloud Trace", level: 60, description: "分散トレーシング" },
+        { name: "OpenTelemetry", level: 60, description: "観測可能性" },
+        { name: "Prometheus", level: 30, description: "メトリクス収集" },
+        { name: "Grafana", level: 30, description: "ダッシュボード構築" },
       ],
     },
     {
@@ -64,12 +102,16 @@ export const SkillsSection: React.FC = () => {
       icon: Code,
       color: "warning",
       skills: [
-        { name: "Python", level: 88, description: "自動化スクリプト" },
-        { name: "Go", level: 82, description: "マイクロサービス開発" },
-        { name: "Bash/Shell", level: 90, description: "システム管理" },
-        { name: "JavaScript", level: 75, description: "フロントエンド開発" },
-        { name: "YAML/JSON", level: 92, description: "設定管理" },
-        { name: "SQL", level: 85, description: "データベース操作" },
+        { name: "YAML/JSON", level: 90, description: "設定管理" },
+        {
+          name: "Python",
+          level: 80,
+          description: "API 開発・自動化スクリプト",
+        },
+        { name: "Bash/Shell", level: 60, description: "システム管理" },
+        { name: "JavaScript", level: 60, description: "フロントエンド開発" },
+        { name: "Go", level: 50, description: "マイクロサービス開発" },
+        { name: "TypeScript", level: 50, description: "フロントエンド開発" },
       ],
     },
     {
@@ -77,12 +119,20 @@ export const SkillsSection: React.FC = () => {
       icon: Database,
       color: "danger",
       skills: [
-        { name: "PostgreSQL", level: 85, description: "リレーショナル DB" },
-        { name: "MySQL", level: 88, description: "RDBMS 管理" },
-        { name: "Redis", level: 82, description: "キャッシュ・セッション管理" },
-        { name: "MongoDB", level: 75, description: "NoSQL 運用" },
-        { name: "BigQuery", level: 80, description: "データウェアハウス" },
-        { name: "Cloud Spanner", level: 70, description: "グローバル分散 DB" },
+        {
+          name: "Cloud Storage",
+          level: 90,
+          description: "オブジェクトストレージ",
+        },
+        { name: "Firestore", level: 80, description: "NoSQL 運用" },
+        { name: "Cloud SQL", level: 80, description: "RDBMS 運用" },
+        {
+          name: "Vertex AI Vector Search",
+          level: 60,
+          description: "ベクトル検索",
+        },
+        { name: "Memorystore", level: 60, description: "キャッシュ管理" },
+        { name: "BigQuery", level: 50, description: "データウェアハウス運用" },
       ],
     },
     {
@@ -90,19 +140,23 @@ export const SkillsSection: React.FC = () => {
       icon: Shield,
       color: "default",
       skills: [
-        { name: "IAM", level: 88, description: "アクセス制御管理" },
+        { name: "Cloud IAM", level: 90, description: "アクセス制御管理" },
         {
-          name: "Network Security",
-          level: 85,
-          description: "ファイアウォール・VPN",
+          name: "Cloud NGFW",
+          level: 80,
+          description: "ファイアウォール運用",
         },
-        { name: "SSL/TLS", level: 90, description: "暗号化通信" },
-        { name: "Security Scanning", level: 80, description: "脆弱性検査" },
-        { name: "Compliance", level: 85, description: "SOC2・ISO27001" },
+        { name: "Cloud Armor", level: 80, description: "WAF 運用" },
         {
-          name: "Secret Management",
-          level: 82,
+          name: "Secret Manager",
+          level: 70,
           description: "シークレット管理",
+        },
+        { name: "Cloud IAP", level: 60, description: "IAP 運用" },
+        {
+          name: "Cloud Security Command Center",
+          level: 60,
+          description: "セキュリティ監視",
         },
       ],
     },
@@ -236,18 +290,13 @@ export const SkillsSection: React.FC = () => {
                 最新のトレンドとベストプラクティスを常にキャッチアップし、継続的にスキルセットを拡張しています。
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  "Google Cloud Next",
-                  "KubeCon + CloudNativeCon",
-                  "SREcon",
-                  "DevOps Days",
-                  "HashiConf",
-                  "DockerCon",
-                ].map((event, index) => (
-                  <Chip key={index} variant="flat" color="primary" size="sm">
-                    {event}
-                  </Chip>
-                ))}
+                {["Google Cloud Next", "Jagu'e'r", "Zenn", "Qiita"].map(
+                  (event, index) => (
+                    <Chip key={index} variant="flat" color="primary" size="sm">
+                      {event}
+                    </Chip>
+                  )
+                )}
               </div>
             </CardBody>
           </Card>
