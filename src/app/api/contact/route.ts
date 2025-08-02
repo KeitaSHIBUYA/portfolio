@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     const mailOptions = {
       from: process.env.EMAIL_ADDRESS,
       to: process.env.EMAIL_ADDRESS,
-      subject: `ポートフォリオサイトからの問い合わせ: ${name}様より`,
+      subject: `ポートフォリオからのお問い合わせ: ${name} 様より`,
       text: `
 名前: ${name}
 メールアドレス: ${email}

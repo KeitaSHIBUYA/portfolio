@@ -2,7 +2,8 @@
 
 import { Button, Chip } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { ArrowDown, Cloud, Github, Linkedin, Mail } from "lucide-react";
+// import { ArrowDown, Cloud, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Cloud, Github } from "lucide-react";
 import React, { useEffect, useState } from "react";
 
 export const HeroSection: React.FC = () => {
