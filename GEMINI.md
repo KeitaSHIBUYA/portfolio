@@ -1,4 +1,4 @@
-# GEMINI.md
+# Keita SHIBUYA's Portfolio
 
 ## プロジェクト概要
 
