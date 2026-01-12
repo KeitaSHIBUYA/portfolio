@@ -6,6 +6,9 @@ import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const ogImageUrl = "/images/ogp/og-image.png";
+const ogImageAlt = "Keita SHIBUYA's Portfolio";
+
 export const metadata: Metadata = {
   title: "Keita SHIBUYA's Portfolio",
   description:
@@ -39,10 +42,10 @@ export const metadata: Metadata = {
     siteName: "Keita SHIBUYA's Portfolio",
     images: [
       {
-        url: "/images/ogp/og-image.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
-        alt: "Keita SHIBUYA's Portfolio",
+        alt: ogImageAlt,
       },
     ],
   },
@@ -51,7 +54,10 @@ export const metadata: Metadata = {
     title: "Keita SHIBUYA's Portfolio",
     description:
       "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
-    images: ["/images/ogp/og-image.png"],
+    images: {
+      url: ogImageUrl,
+      alt: ogImageAlt,
+    },
   },
   robots: {
     index: true,
