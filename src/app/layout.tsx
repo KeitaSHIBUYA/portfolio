@@ -37,12 +37,21 @@ export const metadata: Metadata = {
     description:
       "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
     siteName: "Keita SHIBUYA's Portfolio",
+    images: [
+      {
+        url: "/images/ogp/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Keita SHIBUYA's Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Keita SHIBUYA's Portfolio",
     description:
       "Site Reliability Engineer specializing in Google Cloud, DevOps, and distributed systems.",
+    images: ["/images/ogp/og-image.png"],
   },
   robots: {
     index: true,
