@@ -1,142 +1,35 @@
 "use client";
 
 import type { NextUIColor } from "@/types/ui";
-import {
-  Button,
-  Card,
-  CardBody,
-  Chip,
-  Input,
-  Textarea,
-} from "@nextui-org/react";
+import { Card, CardBody, Chip } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import {
-  CheckCircle2,
-  Clock,
-  Github,
-  Mail,
-  MapPin,
-  // Phone,
-  Send,
-  XCircle,
-} from "lucide-react";
+import { Clock, Mail, MapPin } from "lucide-react";
 import React from "react";
 
 export const ContactSection: React.FC = () => {
-  const [formData, setFormData] = React.useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [submitStatus, setSubmitStatus] = React.useState<{
-    type: "success" | "error" | null;
-    message: string;
-  }>({ type: null, message: "" });
-
   const contactInfo = [
     {
       icon: Mail,
-      label: "Email（準備中）",
+      label: "Email",
       value: "shibuya.keita@lec-infra.com",
       href: "mailto:shibuya.keita@lec-infra.com",
-      color: "primary",
+      color: "primary" as NextUIColor,
     },
-    // {
-    //   icon: Phone,
-    //   label: "電話",
-    //   value: "+81-90-1234-5678",
-    //   href: "tel:+81901234567",
-    //   color: "secondary",
-    // },
     {
       icon: MapPin,
       label: "所在地",
       value: "東京, 日本",
       href: "#",
-      color: "success",
+      color: "success" as NextUIColor,
     },
     {
       icon: Clock,
       label: "対応時間",
-      value: "平日 9:00-18:00 JST",
+      value: "平日 09:00 - 18:00 JST",
       href: "#",
-      color: "warning",
+      color: "warning" as NextUIColor,
     },
   ];
-
-  const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      href: "https://github.com/KeitaSHIBUYA",
-      color: "default",
-    },
-    // {
-    //   icon: Linkedin,
-    //   label: "LinkedIn",
-    //   href: "https://linkedin.com",
-    //   color: "primary",
-    // },
-    // {
-    //   icon: Globe,
-    //   label: "Blog",
-    //   href: "https://blog.example.com",
-    //   color: "secondary",
-    // },
-  ];
-
-  const handleInputChange =
-    (field: string) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setFormData((prev) => ({
-        ...prev,
-        [field]: e.target.value,
-      }));
-    };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "メッセージの送信に失敗しました");
-      }
-
-      setSubmitStatus({
-        type: "success",
-        message: "メッセージが正常に送信されました",
-      });
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        message: "",
-      });
-    } catch (error) {
-      setSubmitStatus({
-        type: "error",
-        message:
-          error instanceof Error ? error.message : "エラーが発生しました",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -156,7 +49,7 @@ export const ContactSection: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 px-6 bg-background">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -173,326 +66,93 @@ export const ContactSection: React.FC = () => {
           <p className="text-lg text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             SRE プロジェクトのご相談、技術コンサルティング、講演依頼など、
             <br />
-            お気軽にお問い合わせください。迅速に対応いたします。
+            お気軽にお問い合わせください。
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Information */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-          >
-            {/* Status Block */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <Card className="glass">
-                <CardBody className="p-6">
-                  <h4 className="text-lg font-bold mb-3 text-foreground">
-                    現在のステータス
-                  </h4>
-                  <div className="flex items-center mb-4">
-                    <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
-                    <span className="text-success font-semibold">
-                      副業停止中
-                    </span>
-                  </div>
-                  <p className="text-sm text-foreground/70 leading-relaxed">
-                    現在、Cloud Ace で SRE エンジニアとして働いています。
-                    <br />
-                    副業可能ではありますが、今は本業に集中しています。
-                  </p>
-                </CardBody>
-              </Card>
-            </motion.div>
-
-            {/* Social Links */}
-            <motion.div variants={itemVariants} className="mb-8">
-              <Card className="glass">
-                <CardBody className="p-6">
-                  <h4 className="text-lg font-bold mb-4 text-foreground">
-                    ソーシャルメディア
-                  </h4>
-                  <div className="flex gap-4">
-                    {socialLinks.map((social, index) => {
-                      const IconComponent = social.icon;
-                      return (
-                        <Button
-                          key={index}
-                          isIconOnly
-                          variant="flat"
-                          color={social.color as NextUIColor}
-                          size="lg"
-                          as="a"
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="hover:scale-105 transition-transform"
-                          aria-label={`${social.label}を開く`}
-                        >
-                          <IconComponent size={20} aria-hidden="true" />
-                        </Button>
-                      );
-                    })}
-                  </div>
-                </CardBody>
-              </Card>
-            </motion.div>
-
-            <h3 className="text-2xl font-bold mb-8 text-foreground">
-              連絡先情報
-            </h3>
-
-            <div className="space-y-6 mb-8">
-              {contactInfo.map((info, index) => {
-                const IconComponent = info.icon;
-                return (
-                  <motion.div key={index} variants={itemVariants}>
-                    <Card className="glass hover:shadow-md transition-shadow duration-300">
-                      <CardBody className="p-6">
-                        <div className="flex items-center">
-                          <div
-                            className={`p-3 rounded-full bg-${info.color}/10 mr-4`}
-                            role="img"
-                            aria-label={`${info.label}のアイコン`}
-                          >
-                            <IconComponent
-                              size={20}
-                              className={`text-${info.color}`}
-                              aria-hidden="true"
-                            />
-                          </div>
-                          <div>
-                            <p className="text-sm text-foreground/60 mb-1">
-                              {info.label}
-                            </p>
-                            {info.href !== "#" ? (
-                              <a
-                                href={info.href}
-                                className="font-semibold text-foreground hover:text-primary transition-colors"
-                                aria-label={`${info.label}: ${info.value}`}
-                              >
-                                {info.value}
-                              </a>
-                            ) : (
-                              <p className="font-semibold text-foreground">
-                                {info.value}
-                              </p>
-                            )}
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Contact Form Column */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <Card className="glass">
-              <CardBody className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-foreground">
-                  メッセージを送信
-                </h3>
-
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <Input
-                      label="お名前"
-                      placeholder="山田太郎"
-                      value={formData.name}
-                      onChange={handleInputChange("name")}
-                      variant="bordered"
-                      isRequired
-                    />
-                    <Input
-                      label="会社名"
-                      placeholder="株式会社サンプル"
-                      value={formData.company}
-                      onChange={handleInputChange("company")}
-                      variant="bordered"
-                    />
-                  </div>
-
-                  <Input
-                    label="メールアドレス"
-                    placeholder="yamada.taro@example.com"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange("email")}
-                    variant="bordered"
-                    isRequired
-                  />
-
-                  <Textarea
-                    label="メッセージ"
-                    placeholder="プロジェクトの詳細、ご質問、ご相談内容をお書きください..."
-                    value={formData.message}
-                    onChange={handleInputChange("message")}
-                    variant="bordered"
-                    minRows={4}
-                    maxRows={8}
-                    isRequired
-                  />
-
-                  <Button
-                    type="submit"
-                    color="primary"
-                    size="lg"
-                    startContent={<Send size={18} aria-hidden="true" />}
-                    className="w-full font-semibold"
-                    aria-label="メッセージを送信する"
-                    isLoading={isSubmitting}
-                    isDisabled={isSubmitting}
-                  >
-                    {isSubmitting ? "送信中..." : "メッセージを送信"}
-                  </Button>
-
-                  {submitStatus.type && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5 }}
-                      className={`mt-4 p-6 rounded-lg ${
-                        submitStatus.type === "success"
-                          ? "bg-success/10 text-success"
-                          : "bg-danger/10 text-danger"
-                      }`}
+        {/* Contact Info Cards */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12"
+        >
+          {contactInfo.map((info, index) => {
+            const IconComponent = info.icon;
+            return (
+              <motion.div key={index} variants={itemVariants}>
+                <Card className="glass hover:shadow-md transition-shadow duration-300">
+                  <CardBody className="p-4 text-center">
+                    <div
+                      className={`p-3 rounded-full bg-${info.color}/10 mx-auto mb-3 w-fit`}
+                      role="img"
+                      aria-label={`${info.label}のアイコン`}
                     >
-                      <div className="flex flex-col items-center gap-4">
-                        <div className="relative">
-                          {submitStatus.type === "success" ? (
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 260,
-                                damping: 20,
-                              }}
-                            >
-                              <CheckCircle2 size={48} />
-                            </motion.div>
-                          ) : (
-                            <motion.div
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              transition={{
-                                type: "spring",
-                                stiffness: 260,
-                                damping: 20,
-                              }}
-                            >
-                              <XCircle size={48} />
-                            </motion.div>
-                          )}
-                        </div>
-                        <div className="text-center">
-                          <h4 className="text-lg font-bold mb-2">
-                            {submitStatus.type === "success"
-                              ? "メッセージを受け付けました"
-                              : "エラーが発生しました"}
-                          </h4>
-                          <p className="text-sm mb-4">
-                            {submitStatus.type === "success"
-                              ? "24 時間以内に担当者からご連絡させていただきます。"
-                              : submitStatus.message}
-                          </p>
-                          {submitStatus.type === "success" && (
-                            <div className="flex flex-wrap justify-center gap-2">
-                              <Button
-                                size="sm"
-                                variant="flat"
-                                color="success"
-                                onClick={() => {
-                                  setSubmitStatus({ type: null, message: "" });
-                                }}
-                              >
-                                新しいメッセージを作成
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="light"
-                                as="a"
-                                href="https://github.com/KeitaSHIBUYA"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                GitHubをチェック
-                              </Button>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </form>
+                      <IconComponent
+                        size={20}
+                        className={`text-${info.color}`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p className="text-sm text-foreground/60 mb-1">
+                      {info.label}
+                    </p>
+                    {info.href !== "#" ? (
+                      <a
+                        href={info.href}
+                        className="font-semibold text-foreground hover:text-primary transition-colors text-sm"
+                        aria-label={`${info.label}: ${info.value}`}
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <p className="font-semibold text-foreground text-sm">
+                        {info.value}
+                      </p>
+                    )}
+                  </CardBody>
+                </Card>
+              </motion.div>
+            );
+          })}
+        </motion.div>
 
-                <div className="mt-6 p-4 bg-content2 rounded-lg">
-                  <p className="text-sm text-foreground/70 text-center">
-                    <strong>お返事について：</strong>
-                    <br />
-                    いただいたお問い合わせには、原則 24
-                    時間以内にご返信いたします。
-                  </p>
-                </div>
-              </CardBody>
-            </Card>
-          </motion.div>
-        </div>
-
-        {/* Call to Action */}
+        {/* Google Form */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
         >
-          {/* <Card className="glass max-w-4xl mx-auto">
+          <Card className="glass">
             <CardBody className="p-8">
-              <h3 className="text-2xl font-bold mb-4 gradient-text">
-                一緒により良いシステムを作りませんか？
+              <h3 className="text-2xl font-bold mb-6 text-foreground text-center">
+                メッセージを送信
               </h3>
-              <p className="text-lg text-foreground/80 mb-6 leading-relaxed">
-                信頼性、スケーラビリティ、そしてユーザー体験の向上を実現する
-                Google Cloud SRE
-                ソリューションについて、まずはお気軽にご相談ください。
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button
-                  color="primary"
-                  size="lg"
-                  startContent={<Mail size={18} aria-hidden="true" />}
-                  as="a"
-                  href="mailto:shibuya.keita@lec-infra.com"
-                  className="font-semibold"
-                  aria-label="メールで相談する"
+
+              <div className="w-full flex justify-center">
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLSdZfY3RiZHlH_L-XzehaG4x1DxmZFwih4QJe-4rcBG53ApuzA/viewform?embedded=true"
+                  width="100%"
+                  height="1534"
+                  style={{ border: 0, maxWidth: "640px" }}
+                  title="お問い合わせフォーム"
                 >
-                  今すぐ相談する
-                </Button>
-                <Button
-                  variant="bordered"
-                  size="lg"
-                  startContent={<Phone size={18} aria-hidden="true" />}
-                  as="a"
-                  href="tel:+81901234567"
-                  className="font-semibold"
-                  aria-label="電話で相談する"
-                >
-                  電話で相談
-                </Button>
+                  読み込んでいます…
+                </iframe>
+              </div>
+
+              <div className="mt-6 p-4 bg-content2 rounded-lg">
+                <p className="text-sm text-foreground/70 text-center">
+                  <strong>お返事について：</strong>
+                  <br />
+                  いただいたお問い合わせには、原則 24
+                  時間以内にご返信いたします。
+                </p>
               </div>
             </CardBody>
-          </Card> */}
+          </Card>
         </motion.div>
       </div>
 

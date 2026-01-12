@@ -1,8 +1,18 @@
 "use client";
 
-import { Card, CardBody, Chip } from "@nextui-org/react";
+import type { NextUIColor } from "@/types/ui";
+import { Button, Card, CardBody, Chip } from "@nextui-org/react";
 import { motion } from "framer-motion";
-import { Award, BarChart3, Cloud, Server, Shield, Users } from "lucide-react";
+import {
+  Award,
+  BarChart3,
+  Cloud,
+  Github,
+  Linkedin,
+  Server,
+  Shield,
+  Users,
+} from "lucide-react";
 import React from "react";
 
 export const AboutSection: React.FC = () => {
@@ -52,6 +62,21 @@ export const AboutSection: React.FC = () => {
     },
   ];
 
+  const socialLinks = [
+    {
+      icon: Github,
+      label: "GitHub",
+      href: "https://github.com/KeitaSHIBUYA",
+      color: "default",
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/keita-shibuya-9aa09b389/",
+      color: "primary",
+    },
+  ];
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -91,6 +116,62 @@ export const AboutSection: React.FC = () => {
             を活用した大規模システムの設計・運用に携わってきました。
             可用性、スケーラビリティ、パフォーマンスの最適化を通じて、ビジネスの成長を技術面で支えています。
           </p>
+        </motion.div>
+
+        {/* Status & Social Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16"
+        >
+          {/* Status Block */}
+          <Card className="glass">
+            <CardBody className="p-6">
+              <h4 className="text-lg font-bold mb-3 text-foreground">
+                現在のステータス
+              </h4>
+              <div className="flex items-center mb-4">
+                <div className="w-3 h-3 bg-success rounded-full mr-3 animate-pulse"></div>
+                <span className="text-success font-semibold">副業停止中</span>
+              </div>
+              <p className="text-sm text-foreground/70 leading-relaxed">
+                現在、Cloud Ace で SRE エンジニアとして働いています。
+                <br />
+                副業可能ではありますが、今は本業に集中しています。
+              </p>
+            </CardBody>
+          </Card>
+
+          {/* Social Links */}
+          <Card className="glass">
+            <CardBody className="p-6">
+              <h4 className="text-lg font-bold mb-4 text-foreground">SNS</h4>
+              <div className="flex gap-4">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <Button
+                      key={index}
+                      isIconOnly
+                      variant="flat"
+                      color={social.color as NextUIColor}
+                      size="lg"
+                      as="a"
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:scale-105 transition-transform"
+                      aria-label={`${social.label}を開く`}
+                    >
+                      <IconComponent size={20} aria-hidden="true" />
+                    </Button>
+                  );
+                })}
+              </div>
+            </CardBody>
+          </Card>
         </motion.div>
 
         <motion.div
