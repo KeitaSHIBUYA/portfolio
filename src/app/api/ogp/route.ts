@@ -9,6 +9,25 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "URL is required" }, { status: 400 });
   }
 
+  // SSRF対策: 許可されたドメインのみを受け付ける
+  const allowedHosts = ["zenn.dev", "qiita.com", "cloud-ace.jp"];
+
+  try {
+    const requestHost = new URL(url).hostname;
+    if (
+      !allowedHosts.some(
+        (host) => requestHost === host || requestHost.endsWith(`.${host}`)
+      )
+    ) {
+      return NextResponse.json(
+        { error: "URL is not allowed" },
+        { status: 400 }
+      );
+    }
+  } catch {
+    return NextResponse.json({ error: "Invalid URL" }, { status: 400 });
+  }
+
   try {
     const { result } = await ogs({ url });
 

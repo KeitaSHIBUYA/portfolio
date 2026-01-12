@@ -27,13 +27,14 @@ export const LinkCard: React.FC<LinkCardProps> = ({ url, className = "" }) => {
 
   useEffect(() => {
     const fetchOgp = async () => {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const response = await fetch(`/api/ogp?url=${encodeURIComponent(url)}`);
         if (!response.ok) throw new Error("Failed to fetch");
         const data = await response.json();
         setOgpData(data);
-      } catch {
+      } catch (error) {
+        console.error("Failed to fetch OGP for url:", url, error);
         setError(true);
       } finally {
         setIsLoading(false);
@@ -129,11 +130,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({ url, className = "" }) => {
                 <div className="flex items-center gap-1.5">
                   {ogpData.favicon && (
                     <Image
-                      src={
-                        ogpData.favicon.startsWith("http")
-                          ? ogpData.favicon
-                          : `https://${domain}${ogpData.favicon}`
-                      }
+                      src={new URL(ogpData.favicon, url).href}
                       alt=""
                       width={14}
                       height={14}
@@ -159,7 +156,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({ url, className = "" }) => {
               <div className="relative w-full sm:w-48 h-36 sm:h-auto shrink-0 bg-content2">
                 <Image
                   src={ogpData.image}
-                  alt=""
+                  alt={ogpData.title || "記事のOGP画像"}
                   fill
                   className="object-cover"
                   sizes="(max-width: 640px) 100vw, 192px"

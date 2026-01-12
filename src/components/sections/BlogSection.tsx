@@ -65,8 +65,8 @@ export const BlogSection: React.FC = () => {
           viewport={{ once: true }}
           className="space-y-6 max-w-4xl mx-auto"
         >
-          {blogPosts.map((post, index) => (
-            <motion.div key={index} variants={itemVariants}>
+          {blogPosts.map((post) => (
+            <motion.div key={post.url} variants={itemVariants}>
               <div className="space-y-3">
                 <LinkCard url={post.url} />
                 {/* Tags */}

@@ -5,7 +5,39 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**",
+        hostname: "zenn.dev",
+      },
+      {
+        protocol: "https",
+        hostname: "*.zenn.dev",
+      },
+      {
+        protocol: "https",
+        hostname: "zenn.studio",
+      },
+      {
+        protocol: "https",
+        hostname: "*.zenn.studio",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+      },
+      {
+        protocol: "https",
+        hostname: "qiita.com",
+      },
+      {
+        protocol: "https",
+        hostname: "*.qiita.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cloud-ace.jp",
+      },
+      {
+        protocol: "https",
+        hostname: "*.cloud-ace.jp",
       },
     ],
   },
