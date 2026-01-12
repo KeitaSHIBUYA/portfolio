@@ -6,7 +6,7 @@ import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const ogImageUrl = "/images/ogp/og-image.png";
+const ogImageUrl = "/images/ogp/ogp.png";
 const ogImageAlt = "Keita SHIBUYA's Portfolio";
 
 export const metadata: Metadata = {
